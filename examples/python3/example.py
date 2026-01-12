@@ -1,6 +1,5 @@
-#!/usr/bin/env python3
 """
-simple_example.py
+example.py
 
 A simple example showing:
 1) Unauthenticated call to getPerson('Windsor-1')
@@ -19,7 +18,7 @@ import time
 from wt_session import WTSession
 
 
-APP_ID = "WTPython-SimpleExample"
+APP_ID = "WTPython-Example"
 KEY = "Windsor-1"
 
 
