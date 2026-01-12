@@ -107,7 +107,7 @@ class WTSession:
         self._user_name = ""
         self._user_id = ""
 
-        # CHANGE: Support appId
+        # CHANGE: Support appId (helps avoid "Limit exceeded." for no-appId traffic)
         self._app_id = app_id
 
     @property
@@ -300,7 +300,7 @@ class WTSession:
         # CHANGE: Always include appId to reduce rate limiting for no-appId traffic.
         # Copy the dict so we do not mutate the caller's object.
         post_payload = dict(post_data)
-        post_payload["appId"] = self._app_id
+        post_payload.setdefault("appId", self._app_id)
 
         response = self._session.post(
             url=API_URL,
